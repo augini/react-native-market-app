@@ -1,17 +1,22 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import GlobalStyles, { images } from "../styles/GlobalStyles";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const ViewImageScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity
-          style={{ ...styles.button, backgroundColor: "green" }}
-        ></TouchableOpacity>
-        <TouchableOpacity
-          style={{ ...styles.button, backgroundColor: "red" }}
-        ></TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <MaterialCommunityIcons name="close" color="white" size={30} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <MaterialCommunityIcons
+            name="trash-can-outline"
+            color="white"
+            size={30}
+          />
+        </TouchableOpacity>
       </View>
       <Image style={styles.image} source={images.chair}></Image>
     </View>
@@ -35,8 +40,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   button: {
-    backgroundColor: "grey",
     width: 50,
+    justifyContent: "center",
+    alignItems: "center",
     height: 50,
     margin: 5,
   },

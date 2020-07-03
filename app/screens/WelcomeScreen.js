@@ -7,37 +7,27 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import GlobalStyles, { images } from "../styles/GlobalStyles";
+import GlobalStyles, { images, colors, fonts } from "../styles/GlobalStyles";
+import FlatButton from "../components/FlatButton";
 
 const WelcomeScreen = () => {
   return (
-    <ImageBackground source={images.background} style={styles.backgroundImage}>
+    <ImageBackground
+      source={images.background}
+      style={styles.backgroundImage}
+      blurRadius={2}
+    >
       <View style={styles.logoContainer}>
         <Image source={images.redLogo} style={styles.logo} />
-        <Text style={styles.logoText}>Sell what you do not need</Text>
+        <Text style={styles.logoText}>Sell what you don't need</Text>
       </View>
-      <TouchableOpacity
-        style={{ ...styles.button, backgroundColor: "#fc5c65" }}
-      >
-        <Text
-          onPress={() => {
-            alert("Good");
-          }}
-        >
-          Click me
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={{ ...styles.button, backgroundColor: "#4ECDC4" }}
-      >
-        <Text
-          onPress={() => {
-            alert("Good");
-          }}
-        >
-          Click me
-        </Text>
-      </TouchableOpacity>
+      <View style={styles.buttonsContainer}>
+        <FlatButton backgroundColor={colors.primary} text="Login"></FlatButton>
+        <FlatButton
+          backgroundColor={colors.secondary}
+          text="Register"
+        ></FlatButton>
+      </View>
     </ImageBackground>
   );
 };
@@ -53,7 +43,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     alignSelf: "center",
     alignItems: "center",
-    top: 150,
+    top: 70,
   },
   logo: {
     width: 100,
@@ -61,11 +51,13 @@ const styles = StyleSheet.create({
   },
   logoText: {
     top: 20,
+    fontSize: fonts.primaryFontSize,
+    fontWeight: "bold",
+    textTransform: "capitalize",
   },
-  button: {
+  buttonsContainer: {
     width: "100%",
-    height: 55,
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "column",
+    padding: 20,
   },
 });
