@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import GlobalStyles, { images, colors, fonts } from "../styles/GlobalStyles";
-import FlatButton from "../components/AppButton";
+import AppButton from "../components/AppButton";
 
 const WelcomeScreen = () => {
   return (
@@ -22,11 +22,11 @@ const WelcomeScreen = () => {
         <Text style={styles.logoText}>Sell what you don't need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <FlatButton backgroundColor={colors.primary} text="Login"></FlatButton>
-        <FlatButton
+        <AppButton backgroundColor={colors.primary} text="Login"></AppButton>
+        <AppButton
           backgroundColor={colors.secondary}
           text="Register"
-        ></FlatButton>
+        ></AppButton>
       </View>
     </ImageBackground>
   );
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     alignSelf: "center",
     alignItems: "center",
-    top: 70,
+    top: 200,
   },
   logo: {
     width: 100,

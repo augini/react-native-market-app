@@ -10,6 +10,8 @@
     "dependencies": {
         "@react-native-community/hooks": "^2.6.0",
         "expo": "~38.0.8",
+        "expo-image-picker": "^8.3.0",
+        "expo-permissions": "^9.0.1",
         "expo-status-bar": "^1.0.2",
         "formik": "^2.1.4",
         "react": "~16.11.0",

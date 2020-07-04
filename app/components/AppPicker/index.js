@@ -3,10 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput,
   Platform,
   TouchableWithoutFeedback,
-  TouchableHighlight,
   Modal,
   FlatList,
 } from "react-native";
@@ -14,7 +12,15 @@ import { colors } from "../../styles/GlobalStyles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PickerItem from "../../components/PickerItem";
 
-const AppPicker = ({ icon, items, placeholder, selectItem, value }) => {
+const AppPicker = ({
+  icon,
+  items,
+  placeholder,
+  selectItem,
+  value,
+  numberOfColumns,
+  PickerItemComponent = PickerItem,
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -40,33 +46,15 @@ const AppPicker = ({ icon, items, placeholder, selectItem, value }) => {
         </View>
       </TouchableWithoutFeedback>
       <Modal animationType="slide" visible={modalVisible}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <TouchableHighlight
-            style={{
-              backgroundColor: "grey",
-              borderRadius: 15,
-              marginVertical: 100,
-              padding: 10,
-            }}
-            onPress={() => {
-              setModalVisible(!modalVisible);
-            }}
-          >
-            <Text>Hide Modal</Text>
-          </TouchableHighlight>
+        <View style={{ flex: 1 }}>
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
+            numColumns={numberOfColumns}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
-                iconName={item.iconName}
+                item={item}
                 onPress={() => {
                   selectItem(item.label), setModalVisible(!modalVisible);
                 }}

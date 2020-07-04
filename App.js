@@ -16,6 +16,7 @@ import InputScreen from "./app/screens/InputScreen";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ItemListingScreen from "./app/screens/ItemListingScreen";
+import ImageScreen from "./app/screens/ImageScreen";
 
 export default function App() {
   console.log(Dimensions.get("screen"));

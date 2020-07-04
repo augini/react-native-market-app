@@ -56,14 +56,7 @@ const MessagesScreen = () => {
           keyExtractor={(message) => message.id.toString()}
           refreshing={refreshing}
           onRefresh={() => {
-            setMessages([
-              {
-                id: 1,
-                title: "Farrukh",
-                description: "Hey there what have you been doing?",
-                image: images.farrukh,
-              },
-            ]);
+            setMessages(messages);
           }}
           renderItem={({ item }) => (
             <ListItem

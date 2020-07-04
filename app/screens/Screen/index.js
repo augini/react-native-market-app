@@ -9,7 +9,11 @@ import {
 } from "react-native";
 
 const Screen = (props) => {
-  return <SafeAreaView style={styles.screen}>{props.children}</SafeAreaView>;
+  return (
+    <SafeAreaView style={styles.screen}>
+      <View>{props.children}</View>
+    </SafeAreaView>
+  );
 };
 
 export default Screen;

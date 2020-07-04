@@ -24,10 +24,7 @@ const ListItem = ({
     <Swipeable renderRightActions={handleRightActions}>
       <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
         <View style={styles.container}>
-          <View>
-            {ImageComponent}
-            {description && <Text>{description}</Text>}
-          </View>
+          {ImageComponent}
 
           {image && <Image source={image} style={styles.image} />}
           <View style={styles.contentContainer}>
@@ -72,6 +69,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     justifyContent: "center",
+    marginLeft: 10,
     flex: 1,
   },
   title: {

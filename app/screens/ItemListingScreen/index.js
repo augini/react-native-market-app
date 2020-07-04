@@ -9,14 +9,13 @@ import {
 
 import * as Yup from "yup";
 import Screen from "../../screens/Screen";
-import { images } from "../../styles/GlobalStyles";
 import {
   AppForm,
   AppFormField,
   SubmitButton,
   AppFormPicker,
 } from "../../components/forms";
-import AppPicker from "../../components/AppPicker";
+import CategoryPickerItem from "../../components/CategoryPickerItem";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).max(20).label("Title"),
@@ -27,15 +26,55 @@ const validationSchema = Yup.object().shape({
 
 const ItemListingScreen = () => {
   const [categories, setCategories] = useState([
-    { label: "Furniture", value: 1, iconName: "floor-lamp" },
-    { label: "Cars", value: 2, iconName: "car" },
-    { label: "Cameras", value: 3, iconName: "camera" },
-    { label: "Games", value: 4, iconName: "cards" },
-    { label: "Clothing", value: 5, iconName: "shoe-heel" },
-    { label: "Sports", value: 6, iconName: "basketball" },
-    { label: "Movies & Music", value: 7, iconName: "headphones" },
-    { label: "books", value: 8, iconName: "library-books" },
-    { label: "Other", value: 9, iconName: "tab" },
+    {
+      label: "Furniture",
+      value: 1,
+      iconName: "floor-lamp",
+      backgroundColor: "lightcoral",
+    },
+    { label: "Cars", value: 2, iconName: "car", backgroundColor: "#f4a460" },
+    {
+      label: "Cameras",
+      value: 3,
+      iconName: "camera",
+      backgroundColor: "tan",
+    },
+    {
+      label: "Games",
+      value: 4,
+      iconName: "cards",
+      backgroundColor: "lightgreen",
+    },
+    {
+      label: "Clothing",
+      value: 5,
+      iconName: "shoe-heel",
+      backgroundColor: "steelblue",
+    },
+    {
+      label: "Sports",
+      value: 6,
+      iconName: "basketball",
+      backgroundColor: "skyblue",
+    },
+    {
+      label: "Movies & Music",
+      value: 7,
+      iconName: "headphones",
+      backgroundColor: "blue",
+    },
+    {
+      label: "Books",
+      value: 8,
+      iconName: "library-books",
+      backgroundColor: "coral",
+    },
+    {
+      label: "Other",
+      value: 9,
+      iconName: "tab",
+      backgroundColor: "grey",
+    },
   ]);
   return (
     <Screen>
@@ -74,6 +113,8 @@ const ItemListingScreen = () => {
             />
             <AppFormPicker
               name="category"
+              PickerItemComponent={CategoryPickerItem}
+              numberOfColumns={3}
               placeholder="Category"
               items={categories}
             />

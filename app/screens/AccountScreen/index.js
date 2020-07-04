@@ -25,45 +25,47 @@ const AccountScreen = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <ListItem
-          title="Mosh Hamedani"
-          subtitle="programmingwithmosh@gmail.com"
-          image={images.mosh}
-        />
-      </View>
-      <FlatList
-        data={settings}
-        keyExtractor={(item) => item.key.toString()}
-        renderItem={({ item }) => (
+    <Screen>
+      <View style={styles.container}>
+        <View style={styles.header}>
           <ListItem
-            title={item.title}
-            ImageComponent={
-              <Icon
-                name={item.iconName}
-                size={40}
-                backgroundColor={item.background}
-                iconColor="white"
-              />
-            }
+            title="Mosh Hamedani"
+            subtitle="programmingwithmosh@gmail.com"
+            image={images.mosh}
           />
-        )}
-        ItemSeparatorComponent={() => <Seperator />}
-      />
-      <ListItem
-        title="Logout"
-        ImageComponent={
-          <Icon
-            name="logout"
-            size={40}
-            backgroundColor="#ffe66d"
-            iconColor="white"
-          />
-        }
-      />
-      <StatusBar hidden={false} />
-    </View>
+        </View>
+        <FlatList
+          data={settings}
+          keyExtractor={(item) => item.key.toString()}
+          renderItem={({ item }) => (
+            <ListItem
+              title={item.title}
+              ImageComponent={
+                <Icon
+                  name={item.iconName}
+                  size={40}
+                  backgroundColor={item.background}
+                  iconColor="white"
+                />
+              }
+            />
+          )}
+          ItemSeparatorComponent={() => <Seperator />}
+        />
+        <ListItem
+          title="Logout"
+          ImageComponent={
+            <Icon
+              name="logout"
+              size={40}
+              backgroundColor="#ffe66d"
+              iconColor="white"
+            />
+          }
+        />
+        <StatusBar hidden={false} />
+      </View>
+    </Screen>
   );
 };
 
