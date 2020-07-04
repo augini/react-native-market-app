@@ -1,10 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, Text, View, FlatList, ImageStore } from "react-native";
 import { colors, images } from "../../styles/GlobalStyles";
 import Card from "../../components/Card";
 import ListItem from "../../components/ListItem";
 import { StatusBar } from "expo-status-bar";
 import SettingsItem from "../../components/SettingItem";
+import Icon from "../../components/Icon";
+import Seperator from "../../components/Seperator";
 
 const AccountScreen = () => {
   const settings = [
@@ -26,29 +28,40 @@ const AccountScreen = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <ListItem
-          image={images.mosh}
           title="Mosh Hamedani"
-          subtitle="fsdfdsf@gmail.com"
+          subtitle="programmingwithmosh@gmail.com"
+          image={images.mosh}
         />
       </View>
       <FlatList
-        style={{ backgroundColor: "red" }}
         data={settings}
+        keyExtractor={(item) => item.key.toString()}
         renderItem={({ item }) => (
-          <SettingsItem
-            iconName={item.iconName}
-            iconBackground={item.background}
+          <ListItem
             title={item.title}
+            ImageComponent={
+              <Icon
+                name={item.iconName}
+                size={40}
+                backgroundColor={item.background}
+                iconColor="white"
+              />
+            }
           />
         )}
+        ItemSeparatorComponent={() => <Seperator />}
       />
-      <View style={{ marginTop: 40, height: "30%" }}>
-        <SettingsItem
-          iconName="logout"
-          iconBackground="#ffe66d"
-          title="Log out"
-        />
-      </View>
+      <ListItem
+        title="Logout"
+        ImageComponent={
+          <Icon
+            name="logout"
+            size={40}
+            backgroundColor="#ffe66d"
+            iconColor="white"
+          />
+        }
+      />
       <StatusBar hidden={false} />
     </View>
   );
@@ -58,10 +71,11 @@ export default AccountScreen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    marginTop: 30,
     backgroundColor: colors.background,
   },
   header: {
-    backgroundColor: "#ffff",
-    marginVertical: 40,
+    marginVertical: 20,
   },
 });

@@ -12,11 +12,12 @@ import PracticeScreen from "./app/screens/PracticeScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import AccountScreen from "./app/screens/AccountScreen";
+import InputScreen from "./app/screens/InputScreen";
 
 export default function App() {
   console.log(Dimensions.get("screen"));
   const { landscape } = useDeviceOrientation();
-  return <AccountScreen />;
+  return <PracticeScreen />;
 }
 
 const styles = StyleSheet.create({
