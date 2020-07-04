@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import GlobalStyles, { images, colors, fonts } from "../styles/GlobalStyles";
-import FlatButton from "../components/FlatButton";
+import FlatButton from "../components/AppButton";
 
 const WelcomeScreen = () => {
   return (

@@ -5,19 +5,22 @@ import ListItem from "../../components/ListItem";
 import { StatusBar } from "expo-status-bar";
 import Seperator from "../../components/Seperator";
 import ListItemDeleteAction from "../../components/ListItemDeleteAction";
+import Screen from "../Screen/index";
 
 const MessagesScreen = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
       title: "Farrukh",
-      description: "Hey there what have you been doing?",
+      description:
+        "Hey there what have you been doingfsdfisdufhdslaiflasdnflasdnfladsiaifhsdlifnladsifadsiufniladsbfiasldunfiadunfoidsunfidsdsfiubdsnfnsdpofnisdpofidspoifnpdsoaifnpasodifnfsdlfndskfmdskfndskjfndsjkfndskjfndskjfndskjfnijdsafndsiuafndsuiafndiufnsain?",
       image: images.farrukh,
     },
     {
       id: 2,
       title: "Farrukh",
-      description: "Hey there what have you been doing?",
+      description:
+        "Hey there what have you been doingfsdfisdufhdslaiflasdnflasdnfladsiaifhsdlifnladsifadsiufniladsbfiasldunfiadunfoidsunfidsdsfiubdsnfnsdpofnisdpofidspoifnpdsoaifnpasodifnfsdlfndskfmdskfndskjfndsjkfndskjfndskjfndskjfnijdsafndsiuafndsuiafndiufnsain?",
       image: images.farrukh,
     },
     {
@@ -46,39 +49,42 @@ const MessagesScreen = () => {
     setMessages(messages.filter((message) => message.id !== id));
   };
   return (
-    <View style={styles.statusBar}>
-      <FlatList
-        data={messages}
-        keyExtractor={(message) => message.id.toString()}
-        refreshing={refreshing}
-        onRefresh={() => {
-          setMessages([
-            {
-              id: 1,
-              title: "Farrukh",
-              description: "Hey there what have you been doing?",
-              image: images.farrukh,
-            },
-          ]);
-        }}
-        renderItem={({ item }) => (
-          <ListItem
-            title={item.title}
-            subtitle={item.description}
-            image={item.image}
-            handleRightActions={() => (
-              <ListItemDeleteAction
-                onPress={() => {
-                  deleteMessage(item.id);
-                }}
-              />
-            )}
-          />
-        )}
-        ItemSeparatorComponent={() => <Seperator />}
-      ></FlatList>
-      <StatusBar hidden={false}></StatusBar>
-    </View>
+    <Screen>
+      <View style={styles.statusBar}>
+        <FlatList
+          data={messages}
+          keyExtractor={(message) => message.id.toString()}
+          refreshing={refreshing}
+          onRefresh={() => {
+            setMessages([
+              {
+                id: 1,
+                title: "Farrukh",
+                description: "Hey there what have you been doing?",
+                image: images.farrukh,
+              },
+            ]);
+          }}
+          renderItem={({ item }) => (
+            <ListItem
+              title={item.title}
+              subtitle={item.description}
+              image={item.image}
+              iconName="chevron-right"
+              handleRightActions={() => (
+                <ListItemDeleteAction
+                  onPress={() => {
+                    deleteMessage(item.id);
+                  }}
+                />
+              )}
+            />
+          )}
+          ItemSeparatorComponent={() => <Seperator />}
+        ></FlatList>
+        <StatusBar hidden={false}></StatusBar>
+      </View>
+    </Screen>
   );
 };
 

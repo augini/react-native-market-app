@@ -14,7 +14,7 @@ import { colors } from "../../styles/GlobalStyles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PickerItem from "../../components/PickerItem";
 
-const AppPicker = ({ icon, items, placeholder, selectItem }) => {
+const AppPicker = ({ icon, items, placeholder, selectItem, value }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -44,12 +44,14 @@ const AppPicker = ({ icon, items, placeholder, selectItem }) => {
           style={{
             flex: 1,
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <TouchableHighlight
             style={{
               backgroundColor: "grey",
               borderRadius: 15,
+              marginVertical: 100,
               padding: 10,
             }}
             onPress={() => {
@@ -64,6 +66,7 @@ const AppPicker = ({ icon, items, placeholder, selectItem }) => {
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
+                iconName={item.iconName}
                 onPress={() => {
                   selectItem(item.label), setModalVisible(!modalVisible);
                 }}
@@ -80,7 +83,6 @@ export default AppPicker;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
     width: "100%",
     flexDirection: "row",
     backgroundColor: colors.light,
@@ -93,7 +95,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
     marginLeft: 10,
-    color: colors.dark,
+    color: colors.medium,
     flex: 1,
   },
 });
