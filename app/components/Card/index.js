@@ -21,21 +21,21 @@ export default Card;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: 280,
+    height: 300,
     backgroundColor: colors.background,
     alignItems: "center",
   },
   cardContainer: {
     top: 20,
     backgroundColor: "#ffff",
-    height: 250,
-    width: "85%",
+    height: 270,
+    width: "90%",
     borderRadius: 20,
     overflow: "hidden",
   },
   cardImage: {
     width: "100%",
-    height: 180,
+    height: 200,
   },
   cardContent: {
     alignItems: "flex-start",

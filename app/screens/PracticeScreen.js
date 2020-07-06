@@ -1,58 +1,42 @@
 import React from "react";
-import { ScrollView, Text, StyleSheet, StatusBar } from "react-native";
+import { ScrollView, Text, TouchableOpacity } from "react-native";
 import Card from "../components/Card";
 import { images } from "../styles/GlobalStyles";
-const PracticeScreen = () => {
+import Screen from "../screens/Screen";
+import ItemListingScreen from "./ItemListingScreen";
+import { StatusBar } from "expo-status-bar";
+import routes from "../navigation/routes";
+
+const items = [
+  { image: "jacket", title: "Red jacket for sale", subtitle: "500" },
+  { image: "chair", title: "Red jacket for sale", subtitle: "200" },
+  { image: "jacket", title: "Blue jacket is for sale", subtitle: "300" },
+];
+
+const PracticeScreen = ({ navigation }) => {
   return (
-    <ScrollView>
-      <Card
-        image={images.jacket}
-        title="Red jacket for sale!"
-        subtitle="100"
-      ></Card>
-      <Card
-        image={images.chair}
-        title="Red jacket for sale!"
-        subtitle="100"
-      ></Card>
-      <Card
-        image={images.jacket}
-        title="Red jacket for sale!"
-        subtitle="100"
-      ></Card>
-      <Card
-        image={images.jacket}
-        title="Red jacket for sale!"
-        subtitle="100"
-      ></Card>
-      <Card
-        image={images.jacket}
-        title="Red jacket for sale!"
-        subtitle="100"
-      ></Card>
+    <Screen>
+      <ScrollView>
+        {items.map((item) => {
+          return (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(routes.ItemDetails, item);
+              }}
+              key={item.subtitle}
+            >
+              <Card
+                image={images[item.image]}
+                title={item.title}
+                subtitle={item.subtitle}
+              ></Card>
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
       <StatusBar hidden={false} />
-    </ScrollView>
+    </Screen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#ffff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  item: {
-    width: 50,
-    height: 50,
-    borderWidth: 50,
-    borderColor: "yellow",
-    shadowColor: "grey",
-    shadowOffset: { width: 40, height: 10 },
-    shadowOpacity: 1,
-    shadowRadius: 30,
-    elevation: 40,
-  },
-});
 
 export default PracticeScreen;

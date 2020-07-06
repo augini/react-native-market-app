@@ -63,6 +63,7 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+    backgroundColor: "#ffff",
   },
   logo: {
     width: 80,

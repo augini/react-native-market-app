@@ -11,7 +11,7 @@ export const images = {
 };
 
 export const colors = {
-  primary: "#fc5c65",
+  primary: "#ff9a76",
   secondary: "#4ECDC4",
   background: "#f8f4f4",
   white: "#ffff",

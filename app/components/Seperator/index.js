@@ -11,7 +11,7 @@ export default Seperator;
 const styles = StyleSheet.create({
   seperator: {
     width: "100%",
-    height: 5,
+    height: 2,
     borderBottomWidth: 1,
     borderBottomColor: colors.light,
   },

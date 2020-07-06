@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, FlatList, Platform } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import { images, colors } from "../../styles/GlobalStyles";
 import ListItem from "../../components/ListItem";
-import { StatusBar } from "expo-status-bar";
 import Seperator from "../../components/Seperator";
 import ListItemDeleteAction from "../../components/ListItemDeleteAction";
-import Screen from "../Screen/index";
 
 const MessagesScreen = () => {
   const [messages, setMessages] = useState([
@@ -49,42 +47,33 @@ const MessagesScreen = () => {
     setMessages(messages.filter((message) => message.id !== id));
   };
   return (
-    <Screen>
-      <View style={styles.statusBar}>
-        <FlatList
-          data={messages}
-          keyExtractor={(message) => message.id.toString()}
-          refreshing={refreshing}
-          onRefresh={() => {
-            setMessages(messages);
-          }}
-          renderItem={({ item }) => (
-            <ListItem
-              title={item.title}
-              subtitle={item.description}
-              image={item.image}
-              iconName="chevron-right"
-              handleRightActions={() => (
-                <ListItemDeleteAction
-                  onPress={() => {
-                    deleteMessage(item.id);
-                  }}
-                />
-              )}
+    <FlatList
+      data={messages}
+      keyExtractor={(message) => message.id.toString()}
+      refreshing={refreshing}
+      onRefresh={() => {
+        setMessages(messages);
+      }}
+      renderItem={({ item }) => (
+        <ListItem
+          title={item.title}
+          subtitle={item.description}
+          image={item.image}
+          iconName="chevron-right"
+          handleRightActions={() => (
+            <ListItemDeleteAction
+              onPress={() => {
+                deleteMessage(item.id);
+              }}
             />
           )}
-          ItemSeparatorComponent={() => <Seperator />}
-        ></FlatList>
-        <StatusBar hidden={false}></StatusBar>
-      </View>
-    </Screen>
+        />
+      )}
+      ItemSeparatorComponent={() => <Seperator />}
+    ></FlatList>
   );
 };
 
 export default MessagesScreen;
 
-const styles = StyleSheet.create({
-  statusBar: {
-    paddingTop: Platform.OS === "android" ? 30 : 0,
-  },
-});
+const styles = StyleSheet.create({});

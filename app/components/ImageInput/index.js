@@ -36,6 +36,7 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
       console.log("Error reading an image");
     }
   };
+
   const handlePress = () => {
     if (!imageUri) selectImage();
     else {
@@ -43,7 +44,7 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
         {
           text: "Yes",
           onPress: () => {
-            onChangeImage(null);
+            onChangeImage(imageUri);
           },
         },
         { text: "No" },
@@ -69,6 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
     borderRadius: 15,
     justifyContent: "center",
+    margin: 5,
     width: 100,
     overflow: "hidden",
   },

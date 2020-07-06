@@ -9,8 +9,9 @@ import {
 } from "react-native";
 import GlobalStyles, { images, colors, fonts } from "../styles/GlobalStyles";
 import AppButton from "../components/AppButton";
+import routes from "../navigation/routes";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
       source={images.background}
@@ -22,10 +23,19 @@ const WelcomeScreen = () => {
         <Text style={styles.logoText}>Sell what you don't need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton backgroundColor={colors.primary} text="Login"></AppButton>
+        <AppButton
+          backgroundColor={colors.primary}
+          text="Login"
+          onPress={() => {
+            navigation.navigate(routes.Login);
+          }}
+        ></AppButton>
         <AppButton
           backgroundColor={colors.secondary}
           text="Register"
+          onPress={() => {
+            navigation.navigate(routes.Register);
+          }}
         ></AppButton>
       </View>
     </ImageBackground>

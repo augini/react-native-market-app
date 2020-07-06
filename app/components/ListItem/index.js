@@ -12,7 +12,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const ListItem = ({
   image,
-  description,
   title,
   subtitle,
   onPress,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -16,12 +16,15 @@ import {
   AppFormPicker,
 } from "../../components/forms";
 import CategoryPickerItem from "../../components/CategoryPickerItem";
+import AppFormImageField from "../../components/forms/AppFormImageField";
+import useLocation from "../../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).max(20).label("Title"),
   price: Yup.number().required().moreThan(1).lessThan(10000).label("Price"),
   category: Yup.string().required().nullable().min(3).max(30).label("Category"),
   description: Yup.string().nullable().label("Description"),
+  images: Yup.array().min(1, "Please, select at least one image"),
 });
 
 const ItemListingScreen = () => {
@@ -76,6 +79,7 @@ const ItemListingScreen = () => {
       backgroundColor: "grey",
     },
   ]);
+  const location = useLocation();
   return (
     <Screen>
       <TouchableWithoutFeedback
@@ -90,12 +94,14 @@ const ItemListingScreen = () => {
               price: "",
               description: "",
               category: "Category",
+              images: [],
             }}
             onSubmit={(values, actions) => {
-              console.log(values), actions.resetForm();
+              console.log(values, location), actions.resetForm();
             }}
             validationSchema={validationSchema}
           >
+            <AppFormImageField name="images" />
             <AppFormField
               name="title"
               placeholder="Title"
@@ -138,6 +144,8 @@ export default ItemListingScreen;
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+    backgroundColor: "#ffff",
+    flex: 1,
   },
   logo: {
     width: 80,

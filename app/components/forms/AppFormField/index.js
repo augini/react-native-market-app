@@ -8,6 +8,7 @@ const AppFormField = ({ name, fieldWidth, ...otherProps }) => {
     handleChange,
     handleBlur,
     errors,
+    setFieldValue,
     touched,
     values,
   } = useFormikContext();

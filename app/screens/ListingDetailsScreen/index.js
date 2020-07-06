@@ -3,19 +3,21 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { images, colors } from "../../styles/GlobalStyles";
 import ListItem from "../../components/ListItem";
 
-const ListingDetailsScreen = () => {
+const ListingDetailsScreen = ({ route }) => {
+  const { image, title, subtitle } = route.params;
   return (
-    <View>
-      <Image source={images.jacket} style={styles.image}></Image>
+    <View style={styles.container}>
+      <Image source={images[image]} style={styles.image} resizeMode="stretch" />
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>Red jacket for sale</Text>
-        <Text style={styles.price}>$100</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.price}>${subtitle}</Text>
       </View>
       <View style={styles.userDetails}>
         <ListItem
           image={images.farrukh}
           title="Farrukh"
           subtitle="5 Listings"
+          iconName="chevron-right"
         />
       </View>
     </View>
@@ -25,9 +27,12 @@ const ListingDetailsScreen = () => {
 export default ListingDetailsScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#ffff",
+    flex: 1,
+  },
   detailsContainer: {
-    padding: 10,
-    borderWidth: 1,
+    padding: 20,
   },
   image: {
     width: "100%",
@@ -45,5 +50,6 @@ const styles = StyleSheet.create({
   },
   userDetails: {
     marginVertical: 20,
+    padding: 5,
   },
 });
