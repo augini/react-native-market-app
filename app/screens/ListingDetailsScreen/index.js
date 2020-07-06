@@ -1,20 +1,24 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { images, colors } from "../../styles/GlobalStyles";
+import { images as ProjectImages, colors } from "../../styles/GlobalStyles";
 import ListItem from "../../components/ListItem";
 
 const ListingDetailsScreen = ({ route }) => {
-  const { image, title, subtitle } = route.params;
+  const { images, title, price } = route.params;
   return (
     <View style={styles.container}>
-      <Image source={images[image]} style={styles.image} resizeMode="stretch" />
+      <Image
+        source={{ uri: images[0].url }}
+        style={styles.image}
+        resizeMode="stretch"
+      />
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.price}>${subtitle}</Text>
+        <Text style={styles.price}>${price}</Text>
       </View>
       <View style={styles.userDetails}>
         <ListItem
-          image={images.farrukh}
+          image={ProjectImages.farrukh}
           title="Farrukh"
           subtitle="5 Listings"
           iconName="chevron-right"

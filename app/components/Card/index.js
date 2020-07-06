@@ -6,7 +6,11 @@ const Card = ({ image, title, subtitle }) => {
   return (
     <View style={styles.container}>
       <View style={styles.cardContainer}>
-        <Image source={image} style={styles.cardImage} resizeMode="stretch" />
+        <Image
+          source={{ uri: image }}
+          style={styles.cardImage}
+          resizeMode="stretch"
+        />
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>{title}</Text>
           <Text style={styles.cardSubtitle}>${subtitle}</Text>

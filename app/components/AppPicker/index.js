@@ -11,12 +11,14 @@ import {
 import { colors } from "../../styles/GlobalStyles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PickerItem from "../../components/PickerItem";
+import { color } from "react-native-reanimated";
 
 const AppPicker = ({
   icon,
   items,
   placeholder,
   selectItem,
+  selectedItem,
   value,
   numberOfColumns,
   PickerItemComponent = PickerItem,
@@ -37,7 +39,12 @@ const AppPicker = ({
               color={colors.medium}
             />
           )}
-          <Text style={styles.text}>{placeholder}</Text>
+          {selectedItem ? (
+            <Text style={styles.text}>{selectedItem.label}</Text>
+          ) : (
+            <Text style={styles.text}>{placeholder}</Text>
+          )}
+
           <MaterialCommunityIcons
             name="chevron-down"
             size={24}
@@ -56,7 +63,7 @@ const AppPicker = ({
                 label={item.label}
                 item={item}
                 onPress={() => {
-                  selectItem(item.label), setModalVisible(!modalVisible);
+                  selectItem(item), setModalVisible(!modalVisible);
                 }}
               />
             )}

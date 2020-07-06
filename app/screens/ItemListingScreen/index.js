@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
-  Image,
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
@@ -17,7 +16,10 @@ import {
 } from "../../components/forms";
 import CategoryPickerItem from "../../components/CategoryPickerItem";
 import AppFormImageField from "../../components/forms/AppFormImageField";
+import UploadScreen from "../UploadScreen";
+
 import useLocation from "../../hooks/useLocation";
+import listingsAPI from "../../api/listings";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).max(20).label("Title"),
@@ -80,8 +82,33 @@ const ItemListingScreen = () => {
     },
   ]);
   const location = useLocation();
+  const [progress, setProgress] = useState(0);
+  const [uploadVisible, setUploadVisible] = useState(false);
+
+  const handleSubmit = async (values, location) => {
+    setProgress(0);
+    setUploadVisible(true);
+    const result = await listingsAPI.postListing(
+      { ...values, ...location },
+      (progress) => setProgress(progress)
+    );
+
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert("Could not save the listing");
+    }
+  };
+
   return (
     <Screen>
+      <UploadScreen
+        progress={progress}
+        visible={uploadVisible}
+        onDone={() => {
+          setUploadVisible(false);
+        }}
+      />
+
       <TouchableWithoutFeedback
         onPress={() => {
           Keyboard.dismiss();
@@ -97,7 +124,8 @@ const ItemListingScreen = () => {
               images: [],
             }}
             onSubmit={(values, actions) => {
-              console.log(values, location), actions.resetForm();
+              console.log(values, location);
+              handleSubmit(values, location);
             }}
             validationSchema={validationSchema}
           >

@@ -6,4 +6,5 @@ export default Object.freeze({
   MyMessages: "My messages",
   ItemDetails: "ItemDetails",
   Listing: "Listing",
+  Main: "Main",
 });

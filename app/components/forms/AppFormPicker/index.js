@@ -13,13 +13,12 @@ const AppFormPicker = ({
   const { handleSubmit, setFieldValue, values } = useFormikContext();
   return (
     <AppPicker
-      placeholder={values[name]}
+      placeholder={placeholder}
       items={items}
       PickerItemComponent={PickerItemComponent}
       numberOfColumns={numberOfColumns}
-      selectItem={(item) => {
-        setFieldValue(name, item);
-      }}
+      selectItem={(item) => setFieldValue(name, item)}
+      selectedItem={values[name]}
     />
   );
 };
