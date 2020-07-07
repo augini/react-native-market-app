@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "myProject",
-    "slug": "myProject",
+    "name": "react-native-market",
+    "slug": "react-native-market",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",

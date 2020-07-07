@@ -36,11 +36,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   detailsContainer: {
-    padding: 20,
+    paddingHorizontal: 15,
+    paddingTop: 15,
+    backgroundColor: colors.background,
   },
   image: {
     width: "100%",
-    height: 300,
+    height: 250,
   },
   title: {
     fontSize: 24,
@@ -53,7 +55,6 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   userDetails: {
-    marginVertical: 20,
     padding: 5,
   },
 });
