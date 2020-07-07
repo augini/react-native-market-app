@@ -24,7 +24,7 @@ import listingsAPI from "../../api/listings";
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).max(20).label("Title"),
   price: Yup.number().required().moreThan(1).lessThan(10000).label("Price"),
-  category: Yup.string().required().nullable().min(3).max(30).label("Category"),
+  category: Yup.object().required().nullable().label("Category"),
   description: Yup.string().nullable().label("Description"),
   images: Yup.array().min(1, "Please, select at least one image"),
 });
@@ -120,7 +120,7 @@ const ItemListingScreen = () => {
               title: "",
               price: "",
               description: "",
-              category: "Category",
+              category: null,
               images: [],
             }}
             onSubmit={(values, actions) => {
