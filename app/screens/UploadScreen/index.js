@@ -6,7 +6,10 @@ import LottieView from "lottie-react-native";
 
 const UploadScreen = ({ progress, visible = false, onDone }) => {
   return (
-    <Modal visible={visible}>
+    <Modal
+      visible={visible}
+      style={{ justifyContent: "center", alignItems: "center" }}
+    >
       <View style={styles.container}>
         {progress < 1 ? (
           <Progress.Bar
@@ -16,10 +19,9 @@ const UploadScreen = ({ progress, visible = false, onDone }) => {
           />
         ) : (
           <LottieView
-            source={require("../../assets/done.json")}
+            source={require("../../assets/data.json")}
             autoPlay
             loop={false}
-            style={styles.animation}
             onAnimationFinish={onDone}
           />
         )}
@@ -35,9 +37,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
     justifyContent: "center",
-  },
-  animation: {
-    width: 250,
-    height: 150,
   },
 });

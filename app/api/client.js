@@ -1,7 +1,7 @@
 import { create } from "apisauce";
 
 const apiClient = create({
-  baseURL: "http://192.168.0.104:9000/api",
+  baseURL: "https://react-native-server-market.herokuapp.com/api",
 });
 
 export default apiClient;

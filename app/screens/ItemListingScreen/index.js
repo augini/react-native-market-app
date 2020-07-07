@@ -126,6 +126,7 @@ const ItemListingScreen = () => {
             onSubmit={(values, actions) => {
               console.log(values, location);
               handleSubmit(values, location);
+              // actions.resetForm();
             }}
             validationSchema={validationSchema}
           >
