@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
-import {
-  useDimensions,
-  useDeviceOrientation,
-} from "@react-native-community/hooks";
+import { useDeviceOrientation } from "@react-native-community/hooks";
+
+import NetInfo from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -23,6 +23,26 @@ import BottomTabNavigator from "./app/navigation/BottomTabNavigator";
 export default function App() {
   console.log(Dimensions.get("screen"));
   const { landscape } = useDeviceOrientation();
+
+  NetInfo.fetch().then((state) => {
+    console.log("Connection type", state);
+  });
+
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem(
+        "person",
+        JSON.stringify({ id: 1, name: "Farrukh" })
+      );
+      const value = await AsyncStorage.getItem("person");
+      const person = JSON.parse(value);
+      console.log(person);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  demo();
+
   return <BottomTabNavigator />;
 }
 

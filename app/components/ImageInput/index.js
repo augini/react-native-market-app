@@ -12,9 +12,9 @@ import { colors } from "../../styles/GlobalStyles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const ImageInput = ({ imageUri, onChangeImage }) => {
-  useEffect(() => {
-    requestPermission();
-  });
+  // useEffect(() => {
+  //   requestPermission();
+  // });
 
   const requestPermission = async () => {
     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
