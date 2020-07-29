@@ -33,7 +33,7 @@ const get = async (key) => {
 
     if (!item) return null;
 
-    if (isExpired) {
+    if (isExpired(item)) {
       AsyncStorage.removeItem(prefix + key);
       return null;
     }
