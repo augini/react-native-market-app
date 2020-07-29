@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 import { useDeviceOrientation } from "@react-native-community/hooks";
 
-import NetInfo from "@react-native-community/netinfo";
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -21,7 +21,7 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import BottomTabNavigator from "./app/navigation/BottomTabNavigator";
 
 export default function App() {
-  console.log(Dimensions.get("screen"));
+  // console.log(Dimensions.get("screen"));
   const { landscape } = useDeviceOrientation();
 
   NetInfo.fetch().then((state) => {
@@ -32,7 +32,7 @@ export default function App() {
     try {
       await AsyncStorage.setItem(
         "person",
-        JSON.stringify({ id: 1, name: "Farrukh" })
+        JSON.stringify({ id: 1, name: "Farrukh", email: "augini@inbox.ru" })
       );
       const value = await AsyncStorage.getItem("person");
       const person = JSON.parse(value);

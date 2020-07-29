@@ -3,6 +3,7 @@ import client from "./client";
 const endpoint = "/listings";
 
 const getListings = () => client.get(endpoint);
+
 const postListing = (
   { title, price, category, description, images, latitude, longitude },
   onUploadProgress
