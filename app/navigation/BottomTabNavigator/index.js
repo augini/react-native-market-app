@@ -15,50 +15,44 @@ const BottomTab = createBottomTabNavigator();
 
 export default function BottomTabNavigator() {
   return (
-    <NavigationContainer>
-      <BottomTab.Navigator
-        tabBarOptions={{
-          activeTintColor: colors.primary,
-          inactiveTintColor: "gray",
-          safeAreaInsets: { bottom: 0 },
+    <BottomTab.Navigator
+      tabBarOptions={{
+        activeTintColor: colors.primary,
+        inactiveTintColor: "gray",
+        safeAreaInsets: { bottom: 0 },
+      }}
+    >
+      <BottomTab.Screen
+        name="Home"
+        component={ItemListingStack}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
         }}
-      >
-        <BottomTab.Screen
-          name="Home"
-          component={ItemListingStack}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
-            ),
-          }}
-        />
-        <BottomTab.Screen
-          name="Listing"
-          component={ItemListingScreen}
-          options={({ navigation }) => ({
-            tabBarButton: () => (
-              <NewListingButton
-                onPress={() => {
-                  navigation.navigate(routes.Listing);
-                }}
-              />
-            ),
-          })}
-        />
-        <BottomTab.Screen
-          name="Account"
-          component={AccountStack}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="account"
-                color={color}
-                size={size}
-              />
-            ),
-          }}
-        />
-      </BottomTab.Navigator>
-    </NavigationContainer>
+      />
+      <BottomTab.Screen
+        name="Listing"
+        component={ItemListingScreen}
+        options={({ navigation }) => ({
+          tabBarButton: () => (
+            <NewListingButton
+              onPress={() => {
+                navigation.navigate(routes.Listing);
+              }}
+            />
+          ),
+        })}
+      />
+      <BottomTab.Screen
+        name="Account"
+        component={AccountStack}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
+    </BottomTab.Navigator>
   );
 }

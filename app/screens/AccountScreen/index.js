@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { StyleSheet, Text, View, FlatList, ImageStore } from "react-native";
 import { colors, images } from "../../styles/GlobalStyles";
 import ListItem from "../../components/ListItem";
@@ -7,8 +7,12 @@ import Icon from "../../components/Icon";
 import Seperator from "../../components/Seperator";
 import Screen from "../Screen/";
 import routes from "../../navigation/routes";
+import AuthContext from "../../auth/AuthContext";
+import authStorage from "../../auth/storage";
 
 const AccountScreen = ({ navigation }) => {
+  const errorStatus = useState("none");
+  const { user, setUser } = useContext(AuthContext);
   const settings = [
     {
       key: 1,
@@ -30,8 +34,8 @@ const AccountScreen = ({ navigation }) => {
       <View style={styles.container}>
         <View style={styles.header}>
           <ListItem
-            title="Atabekov Farrukh"
-            subtitle="augini18@gmail.com"
+            title={user.name}
+            subtitle={user.email}
             image={images.farrukh}
           />
         </View>
@@ -67,6 +71,10 @@ const AccountScreen = ({ navigation }) => {
                 iconColor="white"
               />
             }
+            onPress={() => {
+              setUser(null);
+              authStorage.removeToken();
+            }}
           />
         </View>
       </View>
