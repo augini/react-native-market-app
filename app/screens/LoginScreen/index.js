@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,7 +7,6 @@ import {
   Keyboard,
   Text,
 } from "react-native";
-import jwtDecode from "jwt-decode";
 
 //custom imports
 import * as Yup from "yup";
@@ -15,8 +14,7 @@ import Screen from "../../screens/Screen";
 import { images } from "../../styles/GlobalStyles";
 import { AppForm, AppFormField, SubmitButton } from "../../components/forms";
 import authApi from "../../api/auth";
-import AuthContext from "../../auth/AuthContext";
-import authStorage from "../../auth/storage";
+import useAuth from "../../auth/useAuth";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -25,16 +23,14 @@ const validationSchema = Yup.object().shape({
 
 const LoginScreen = () => {
   const [errorStatus, setErrorStatus] = useState("none");
-  const { user, setUser } = useContext(AuthContext);
+  const { login } = useAuth();
 
   const handleSubmit = async ({ email, password }) => {
     const result = await authApi.login(email, password);
     if (!result.ok) setErrorStatus("flex");
     setErrorStatus("none");
 
-    const data = jwtDecode(result.data);
-    setUser(data);
-    authStorage.storeToken(result.data);
+    login(result.data);
   };
   return (
     <Screen>

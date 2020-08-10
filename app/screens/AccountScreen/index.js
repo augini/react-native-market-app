@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { StyleSheet, Text, View, FlatList, ImageStore } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, FlatList, ImageStore } from "react-native";
 import { colors, images } from "../../styles/GlobalStyles";
 import ListItem from "../../components/ListItem";
 import { StatusBar } from "expo-status-bar";
@@ -7,12 +7,11 @@ import Icon from "../../components/Icon";
 import Seperator from "../../components/Seperator";
 import Screen from "../Screen/";
 import routes from "../../navigation/routes";
-import AuthContext from "../../auth/AuthContext";
-import authStorage from "../../auth/storage";
+import useAuth from "../../auth/useAuth";
 
 const AccountScreen = ({ navigation }) => {
   const errorStatus = useState("none");
-  const { user, setUser } = useContext(AuthContext);
+  const { user, logout } = useAuth();
   const settings = [
     {
       key: 1,
@@ -71,10 +70,7 @@ const AccountScreen = ({ navigation }) => {
                 iconColor="white"
               />
             }
-            onPress={() => {
-              setUser(null);
-              authStorage.removeToken();
-            }}
+            onPress={() => logout()}
           />
         </View>
       </View>
