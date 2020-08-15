@@ -9,12 +9,12 @@
 
 ## 🔐 Implemented Features
     
-    - **User Authentication**
-    - **User Profile**
-    - **Add posting**
-    - **Offline support**
-    - **Network responsiveness**
-    - **Push Notifications**
+   - **User Authentication**
+   - **User Profile**
+   - **Add posting**
+   - **Offline support**
+   - **Network responsiveness**
+   - **Push Notifications**
     
     
 ## 🚀 Quick start
