@@ -38,7 +38,9 @@
 4.  **Check the running application with Expo!**
 
     This application is deployed on Expo.
+    
     Download the Expo Client from the Play Store/App Store and Scan the QR code at this link 
+    
     [Expo Link](https://expo.io/@atabekovfarrukh/react-native-market)
 
 
