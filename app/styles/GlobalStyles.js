@@ -3,10 +3,8 @@ import { StyleSheet } from "react-native";
 
 export const images = {
   background: require("../assets/images/background.jpg"),
-  chair: require("../assets/images/chair.jpg"),
   redLogo: require("../assets/images/logo-red.png"),
   mosh: require("../assets/images/mosh.jpg"),
-  jacket: require("../assets/images/jacket.jpg"),
   farrukh: require("../assets/images/farrukh.jpg"),
 };
 

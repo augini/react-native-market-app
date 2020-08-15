@@ -32,9 +32,9 @@ export default function App() {
   // console.log(Dimensions.get("screen"));
 
   const { landscape } = useDeviceOrientation();
-  NetInfo.fetch().then((state) => {
-    console.log("Connection type", state);
-  });
+  // NetInfo.fetch().then((state) => {
+  //   console.log("Connection type", state);
+  // });
 
   const restoreToken = async () => {
     const token = await authStorage.getToken();
@@ -47,20 +47,20 @@ export default function App() {
       <AppLoading startAsync={restoreToken} onFinish={() => setIsReady(true)} />
     );
 
-  const demo = async () => {
-    try {
-      await AsyncStorage.setItem(
-        "person",
-        JSON.stringify({ id: 1, name: "Farrukh", email: "augini@inbox.ru" })
-      );
-      const value = await AsyncStorage.getItem("person");
-      const person = JSON.parse(value);
-      console.log(person);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  demo();
+  // const demo = async () => {
+  //   try {
+  //     await AsyncStorage.setItem(
+  //       "person",
+  //       JSON.stringify({ id: 1, name: "Farrukh", email: "augini@inbox.ru" })
+  //     );
+  //     const value = await AsyncStorage.getItem("person");
+  //     const person = JSON.parse(value);
+  //     console.log(person);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // demo();
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>

@@ -1,8 +1,16 @@
 import { create } from "apisauce";
 import cache from "../utility/cache";
+import AuthStorage from "../auth/storage";
 
 const apiClient = create({
   baseURL: "https://react-native-server-market.herokuapp.com/api",
+});
+
+//calling protected APIs
+apiClient.addAsyncRequestTransform(async (request) => {
+  const authToken = await AuthStorage.getToken();
+  if (!authToken) return;
+  request.headers["x-auth-token"] = authToken;
 });
 
 //store the original method
