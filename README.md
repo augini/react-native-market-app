@@ -1,4 +1,4 @@
-# DoneWithIt - The cross platform app to sell second hand items
+# DoneWithIt - Cross platform application to sell used items.
 
 ## 👀 Preview
 | | | |
@@ -20,13 +20,25 @@
     npm start (expo start)
     ```
 
+2.  **Open the source code and start editing!** 
+    Once you start the expo and run the application on your Ios simulator/ Android emulator
+    
+    You can directly start editing the code on the App folder.
 
-2.  **Open the source code and start editing!**
+2.  **Connect to API!** 
+    The backend of the application is set up with Node Js(Express) and hosted on heroku.
+    
+    The base api URL is https://react-native-server-market.herokuapp.com/api.
+    API accepts requests to /auth, /listing, /posting urls. 
+    
+    You can directly make calls to the api and add your listings.
+    
+4.  **Check the running application with Expo!**
 
-    Your site is now running at `http://localhost:8000`!
+    This application is deployed on Expo.
+    Download the Expo Client from the Play Store/App Store and Scan the QR code at this link 
+    [Expo Link](https://expo.io/@atabekovfarrukh/react-native-market)
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-
-## 💫 Deploy
+## 💫 Keep coding 
 
