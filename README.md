@@ -5,7 +5,9 @@
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="1600" alt="Screen Shot 2020-07-21 at 12 40 18 AM" src="app/assets/images/demo/ios/1.png"> | <img width="1600" alt="Screen Shot 2020-07-21 at 12 40 34 AM" src="app/assets/images/demo/ios/3.png">| <img width="1600" alt="Screen Shot 2020-07-21 at 12 40 59 AM" src="app/assets/images/demo/ios/4.png">|
 |<img width="1600" alt="Screen Shot 2020-07-21 at 12 40 18 AM" src="app/assets/images/demo/ios/5.png"> | <img width="1600" alt="Screen Shot 2020-07-21 at 12 40 34 AM" src="app/assets/images/demo/ios/7.png">| <img width="1600" alt="Screen Shot 2020-07-21 at 12 40 59 AM" src="app/assets/images/demo/ios/8.png">|
-|<img width="1600" alt="Screen Shot 2020-07-21 at 12 40 18 AM" src="app/assets/images/demo/ios/7.png"> | <img width="1600" alt="Screen Shot 2020-07-21 at 12 40 34 AM" src="app/assets/images/demo/ios/8.png">| <img width="1600" alt="Screen Shot 2020-07-21 at 12 40 59 AM" src="app/assets/images/demo/ios/9.png">|
+|<img width="1600" alt="Screen Shot 2020-07-21 at 12 40 18 AM" src="app/assets/images/demo/android/1.png"> | <img width="1600" alt="Screen Shot 2020-07-21 at 12 40 34 AM" src="app/assets/images/demo/android/2.png">| <img width="1600" alt="Screen Shot 2020-07-21 at 12 40 59 AM" src="app/assets/images/demo/android/3.png">|
+
+
 ## 🚀 Quick start
 1.  **Start developing.**
 
