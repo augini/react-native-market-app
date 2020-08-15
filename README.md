@@ -21,11 +21,13 @@
     ```
 
 2.  **Open the source code and start editing!** 
+
     Once you start the expo and run the application on your Ios simulator/ Android emulator
     
     You can directly start editing the code on the App folder.
 
 2.  **Connect to API!** 
+
     The backend of the application is set up with Node Js(Express) and hosted on heroku.
     
     The base api URL is https://react-native-server-market.herokuapp.com/api.
